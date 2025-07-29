@@ -67,6 +67,7 @@ def update_database():
             discount_percent=record["discount_percent"],
             low_price=record["low_price"],
             high_price=record["high_price"],
+            performance_time=record["performance_time"],
             performance_date=record["performance_date"],
             is_matinee=record["is_matinee"]
         )

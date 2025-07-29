@@ -31,7 +31,7 @@ class SupabaseConnection:
             return False
     
     # TKTS Discounts table methods
-    def add_discount_record(self, show_id, discount_percent, low_price, high_price, performance_date=None, is_matinee=False):
+    def add_discount_record(self, show_id, discount_percent, low_price, high_price, performance_time, performance_date=None, is_matinee=False):
         """
         Add a new discount record to the TKTS Discounts table
         
@@ -53,7 +53,8 @@ class SupabaseConnection:
                 "low_price": low_price,
                 "high_price": high_price,
                 "performance_date": performance_date,
-                "is_matinee": is_matinee
+                "is_matinee": is_matinee,
+                "performance_time": performance_time,
             }
             response = self.supabase.table('TKTS Discounts').insert(data).execute()
             print(f"✅ Successfully added discount record for {self.get_show_name_by_id(show_id)} on {performance_date} (Matinee: {is_matinee})")

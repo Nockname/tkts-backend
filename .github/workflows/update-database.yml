@@ -30,10 +30,6 @@ jobs:
         cat > keys/keys.py << EOF
         SUPABASE_URL = "${{ secrets.SUPABASE_URL }}"
         SUPABASE_KEY = "${{ secrets.SUPABASE_KEY }}"
-        EMAIL = "${{ secrets.EMAIL }}"
-        PASSWORD = "${{ secrets.PASSWORD }}"
-        PUSHOVER_TOKEN = "${{ secrets.PUSHOVER_TOKEN }}"
-        PUSHOVER_USER = "${{ secrets.PUSHOVER_USER }}"
         EOF
         
     - name: Run database update

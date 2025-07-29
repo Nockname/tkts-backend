@@ -34,6 +34,9 @@ def process_div(div, div_location, soup):
                 if hour >= 4:
                     is_matinee = False
 
+            # Convert time like "4:00 PM" or "11:00 AM" to "HH:MM:SS" in 24-hour format
+            performance_time = datetime.strptime(time, "%I:%M %p").strftime("%H:%M:%S")
+
             discount = cells[1].get_text(strip=True).replace('%', '')
             price = cells[2].get_text(strip=True)
 
@@ -50,6 +53,7 @@ def process_div(div, div_location, soup):
                 "discount_percent": discount,
                 "low_price": low_price,
                 "high_price": high_price,
+                "performance_time": performance_time,
                 "is_matinee": is_matinee,
                 "performance_date": div["Date"],
                 "on_broadway": div["onBroadway"]
