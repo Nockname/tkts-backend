@@ -48,7 +48,7 @@ def update_database():
 
         # Get show ID by title
         # If show does not exist, create a new record
-        show_id = db.get_show_id_by_name_or_create(record["title"])
+        show_id = db.get_show_id_by_name_or_create(record["title"], record["on_broadway"])
 
         # Find if discount record already exists
         previous_record = db.get_discount_record_by_fields(

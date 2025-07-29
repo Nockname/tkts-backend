@@ -176,12 +176,11 @@ class SupabaseConnection:
             print(f"❌ Failed to fetch show ID for '{show_name}': {e}")
             return None
         
-    def get_show_id_by_name_or_create(self, show_name):
-
+    def get_show_id_by_name_or_create(self, show_name, theatre=None):
         show_id = self.get_show_id_by_name(show_name)
         if not show_id:
             print(f"Show '{show_name}' not found, creating new record.")
-            self.add_show_mapping(show_name)
+            self.add_show_mapping(show_name, theatre)
             show_id = self.get_show_id_by_name(show_name)
         return show_id
 
