@@ -1,0 +1,44 @@
+
+name: Send Emails
+
+
+on:
+  schedule:
+    # Run every 3 minutes
+    - cron: '*/3 * * * *'
+  workflow_dispatch:
+
+jobs:
+  send-emails:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Create keys directory and file
+      run: |
+        mkdir -p keys
+        cat > keys/keys.py << EOF
+        SUPABASE_URL = "${{ secrets.SUPABASE_URL }}"
+        SUPABASE_KEY = "${{ secrets.SUPABASE_KEY }}"
+        EMAIL = "${{ secrets.EMAIL }}"
+        EMAIL_PASSWORD = "${{ secrets.EMAIL_PASSWORD }}"
+        EOF
+
+    - name: Run email script
+      run: |
+        python -m emails.main
+
+    - name: Log completion
+      run: echo "Email script completed at $(date)"

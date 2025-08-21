@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f8fafc;
+    line-height: 1.6;
+    }
+    .container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    margin-bottom: 40px;
+    }
+    .header {
+    background: linear-gradient(135deg, #d5e6f0 0%, #accde0 100%);
+    padding: 40px 30px;
+    text-align: center;
+    color: white;
+    }
+    .logo {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #ee6c4d;
+    }
+    .tagline {
+    font-size: 16px;
+    opacity: 0.9;
+    margin: 0;
+    }
+    .content {
+    padding: 40px 30px;
+    text-align: center;
+    }
+    .title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #3d5a80;
+    margin-bottom: 16px;
+    }
+    .subtitle {
+    font-size: 18px;
+    color: #64748b;
+    margin-bottom: 32px;
+    line-height: 1.5;
+    }
+    .tdf-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #ee6c4d 0%, #f28b71 100%);
+    color: white;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(238, 108, 77, 0.3);
+    transition: transform 0.2s ease;
+    }
+    .tdf-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(238, 108, 77, 0.4);
+    }
+    .footer {
+    background-color: #f8fafc;
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid #e2e8f0;
+    }
+    .footer-text {
+    color: #64748b;
+    font-size: 14px;
+    margin: 0 0 10px 0;
+    }
+    .footer-link {
+    color: #3d5a80;
+    text-decoration: none;
+    }
+    .unsubscribe {
+    color: #64748b;
+    font-size: 13px;
+    margin-top: 16px;
+    }
+    .unsubscribe-link {
+    color: #ee6c4d;
+    text-decoration: underline;
+    word-break: break-all;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+    <div class="logo">Standing Room</div>
+    <p class="tagline">Your go-to place for all things TDF</p>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="content">
+    <h1 class="title">{{ShowTitle}} is now on TDF</h1>
+
+    {{Subtitle}}
+    
+    <a href="https://nycgw47.tdf.org/TDFCustomOfferings/Current" class="tdf-button" target="_blank">
+        View on TDF
+    </a>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+    <p class="footer-text">
+        You're receiving this because you subscribed to notifications from 
+        <a href="https://tkts.nicholashagedorn.com" class="footer-link">Standing Room</a>.
+    </p>
+    <div class="unsubscribe">
+        To unsubscribe or change your email notification preferences,
+        <a href="https://tkts.nicholashagedorn.com/tdf" class="unsubscribe-link">click here</a>.
+    </div>
+    </div>
+</div>
+</body>
+</html>

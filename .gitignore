@@ -162,5 +162,5 @@ cython_debug/
 
 # Project specific
 .DS_Store
-tdf/
 keys/
+pushover/
