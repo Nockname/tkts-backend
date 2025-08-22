@@ -5,7 +5,7 @@ name: Send Emails
 on:
   schedule:
     # Run every 3 minutes
-    - cron: '*/3 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -38,7 +38,8 @@ jobs:
 
     - name: Run email script
       run: |
-        python -m emails.main
+        cd tdf
+        python main.py
 
     - name: Log completion
       run: echo "Email script completed at $(date)"
