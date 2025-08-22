@@ -179,7 +179,7 @@ def get_email_body(show_title, venue):
 
             subtitle = f"<p class=\"subtitle\">The last time {show_title} was on TDF, it stayed on TDF for {formatted_difference}. It ultimately left TDF on {next_date}.</p>"
 
-    with open('tdf/email.html', 'r') as file:
+    with open('email.html', 'r') as file:
         TEMPLATE = file.read()
 
     return TEMPLATE.replace("{{ShowTitle}}", show_title).replace("{{Subtitle}}", subtitle)
