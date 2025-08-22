@@ -1,4 +1,3 @@
-from keys.keys import SUPABASE_KEY, SUPABASE_URL, EMAIL, EMAIL_PASSWORD
 from supabase import create_client
 import requests
 import re
@@ -8,6 +7,13 @@ import pytz
 import smtplib
 from email.message import EmailMessage
 from datetime import datetime
+import os, sys
+
+
+# Add parent directory to path to import keys
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, parent_dir)
+from keys.keys import SUPABASE_KEY, SUPABASE_URL, EMAIL, EMAIL_PASSWORD
 
 URLS = {
     "broadway": "https://www.tdf.org/on-stage/show-finder/?page=1&pageSize=100&tdfMembership=true&venueId=1",
