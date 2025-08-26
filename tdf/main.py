@@ -213,6 +213,7 @@ def main():
 
     if not new_offers:
         pprint(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}: No new TDF offers found.")
+        store_current_tdf_offers(current_tdf_offers)
         return
 
 
