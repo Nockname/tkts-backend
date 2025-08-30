@@ -40,12 +40,19 @@ def process_div(div, div_location, soup):
             discount = cells[1].get_text(strip=True).replace('%', '')
             price = cells[2].get_text(strip=True)
 
+            # Handle price ranges with different dash formats
+            price = price.replace('--', '-').replace('---', '-')
             if '-' in price:
                 low_price, high_price = price.replace('$', '').split('-')
                 low_price = low_price.strip()
                 high_price = high_price.strip()
             else:
                 low_price = high_price = price.replace('$', '').strip()
+                
+            if not low_price:
+                low_price = None
+            if not high_price:
+                high_price = None
 
             title = cells[3].get_text(strip=True).replace('"', '')
             data.append({
