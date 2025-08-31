@@ -20,14 +20,14 @@ def update_discount_record(new_record, previous_record):
             discount_percent=new_record["discount_percent"]
         )
 
-    if float(new_record["low_price"]) < float(previous_record["low_price"]):
+    if previous_record["low_price"] and float(new_record["low_price"]) < float(previous_record["low_price"]):
         print(f"Updating low price for {new_record['title']} from {previous_record['low_price']} to {new_record['low_price']}")
         db.update_discount(
             record_id=previous_record["id"],
             low_price=new_record["low_price"]
         )
 
-    if float(new_record["high_price"]) > float(previous_record["high_price"]):
+    if previous_record["high_price"] and float(new_record["high_price"]) > float(previous_record["high_price"]):
         print(f"Updating high price for {new_record['title']} from {previous_record['high_price']} to {new_record['high_price']}")
         db.update_discount(
             record_id=previous_record["id"],
