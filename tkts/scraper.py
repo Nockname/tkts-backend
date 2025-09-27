@@ -27,6 +27,7 @@ def process_div(div, div_location, soup):
     for row in rows:
         cells = row.find_all("td")
         if len(cells) == 4:  # Ensure we have the right number of columns
+            
             time = cells[0].get_text(strip=True)
             is_matinee = True
             if "PM" in time:
@@ -53,6 +54,9 @@ def process_div(div, div_location, soup):
                 low_price = None
             if not high_price:
                 high_price = None
+                
+            if not low_price and not high_price:
+                continue
 
             title = cells[3].get_text(strip=True).replace('"', '')
             data.append({
@@ -99,4 +103,4 @@ def get_tkts_data():
 
 if __name__ == "__main__":
     data = get_tkts_data()
-    pprint.pprint(data)
+    # pprint.pprint(data)
